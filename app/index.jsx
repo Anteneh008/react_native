@@ -7,6 +7,7 @@ import {
   Platform,
   StatusBar as RNStatusBar,
   Image,
+  TouchableWithoutFeedback,
 } from "react-native";
 
 export default function App() {
@@ -17,19 +18,19 @@ export default function App() {
         Hello React Native - A really really long text. Now I wanna make this
         even longer and see what happens!
       </Text>
+      <TouchableWithoutFeedback onPress={() => console.log("Image tapped")}>
+        <Image
+          source={{
+            width: 200,
+            height: 300,
+            uri: "https://picsum.photos/200/300",
+          }}
+        />
+      </TouchableWithoutFeedback>
       <Image
         source={require("../assets/icon.png")}
         style={styles.image}
         resizeMode="contain"
-      />
-      <Image
-        blurRadius={10}
-        fadeDuration={1000}
-        source={{
-          width: 200,
-          height: 300,
-          uri: "https://picsum.photos/200/300",
-        }}
       />
       <StatusBar style="auto" />
     </SafeAreaView>
