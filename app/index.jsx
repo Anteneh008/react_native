@@ -10,6 +10,7 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
   TouchableHighlight,
+  TouchableNativeFeedback,
 } from "react-native";
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
         Hello React Native - A really really long text. Now I wanna make this
         even longer and see what happens!
       </Text>
-      <TouchableHighlight onPress={() => console.log("Image tapped")}>
+      <TouchableNativeFeedback onPress={() => console.log("Image tapped")}>
         <Image
           source={{
             width: 200,
@@ -28,7 +29,7 @@ export default function App() {
             uri: "https://picsum.photos/200/300",
           }}
         />
-      </TouchableHighlight>
+      </TouchableNativeFeedback>
       <Image
         source={require("../assets/icon.png")}
         style={styles.image}
