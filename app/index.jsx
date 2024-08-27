@@ -5,11 +5,12 @@ import {
   SafeAreaView,
   StyleSheet,
   Alert,
+  StatusBar,
 } from "react-native";
 
 export default function App() {
   return (
-    <SafeAreaView style={[styles.container, containerStyle]}>
+    <SafeAreaView style={[styles.container]}>
       <Button
         color="orange"
         title="Click Me"
@@ -21,15 +22,12 @@ export default function App() {
   );
 }
 
-const containerStyle = {backgroundColor: "orange"}
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: Platform.OS === "android" ? RNStatusBar.currentHeight : 0,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+
     padding: 10,
   },
 });
