@@ -9,7 +9,7 @@ import {
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, containerStyle]}>
       <Button
         color="orange"
         title="Click Me"
@@ -20,6 +20,8 @@ export default function App() {
     </SafeAreaView>
   );
 }
+
+const containerStyle = {backgroundColor: "orange"}
 
 const styles = StyleSheet.create({
   container: {
