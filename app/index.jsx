@@ -4,13 +4,14 @@ import {
   StatusBar as RNStatusBar,
   SafeAreaView,
   StyleSheet,
+  Alert
 } from "react-native";
 
 export default function App() {
-  const handlePress = () => console.log("Text clicked");
+  
   return (
     <SafeAreaView style={styles.container}>
-      <Button color="orange" title="Click Me" onPress={() => console.log("Button tapped")} />
+      <Button color="orange" title="Click Me" onPress={() => alert("Button tapped")} />
     </SafeAreaView>
   );
 }
