@@ -1,27 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useDeviceOrientation } from "@react-native-community/hooks";
+import React from "react";
 import {
   Platform,
   SafeAreaView,
   StatusBar,
   StyleSheet,
   View,
-  Dimensions,
 } from "react-native";
 
 export default function App() {
-  const [dimensions, setDimensions] = useState(Dimensions.get("window"));
+  const orientation = useDeviceOrientation();
 
-  useEffect(() => {
-    const subscription = Dimensions.addEventListener("change", ({ window }) => {
-      setDimensions(window);
-    });
-
-    return () => {
-      subscription?.remove();
-    };
-  }, []);
-
-  const isPortrait = dimensions.height > dimensions.width;
+  const isLandscape = orientation === "landscape";
 
   return (
     <SafeAreaView style={styles.container}>
@@ -29,7 +19,7 @@ export default function App() {
         style={{
           backgroundColor: "dodgerblue",
           width: "100%",
-          height: isPortrait ? "30%" : "50%",
+          height: isLandscape ? "100%" : "30%", // Adjust height based on orientation
         }}
       />
     </SafeAreaView>
