@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   Platform,
   SafeAreaView,
@@ -8,12 +9,29 @@ import {
 } from "react-native";
 
 export default function App() {
-  console.log(Dimensions.get("screen"))
+  const [dimensions, setDimensions] = useState(Dimensions.get("window"));
+
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener("change", ({ window }) => {
+      setDimensions(window);
+    });
+
+    return () => {
+      subscription?.remove();
+    };
+  }, []);
+
+  const isPortrait = dimensions.height > dimensions.width;
+
   return (
-    <SafeAreaView style={[styles.container]}>
+    <SafeAreaView style={styles.container}>
       <View
-        style={{ backgroundColor: "dodgerblue", width: "50%", height: 70 }}
-      ></View>
+        style={{
+          backgroundColor: "dodgerblue",
+          width: "100%",
+          height: isPortrait ? "30%" : "50%",
+        }}
+      />
     </SafeAreaView>
   );
 }
@@ -23,7 +41,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-
-    padding: 10,
   },
 });
