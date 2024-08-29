@@ -1,19 +1,12 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import AppButton from "./components/AppButton";
+import WelcomeScreen from "./screens/WelcomeScreen";
 
 // https://icons.expo.fyi/Index
 
 export default function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <AppButton title="login" onPress={() => console.log("Tapped")}/>
-    </View>
+    <WelcomeScreen />
   );
 }
