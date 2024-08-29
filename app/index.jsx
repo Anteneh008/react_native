@@ -1,6 +1,5 @@
 import React from "react";
 import { View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "./components/AppText";
 
 // https://icons.expo.fyi/Index
