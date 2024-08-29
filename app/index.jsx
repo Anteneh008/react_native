@@ -1,6 +1,6 @@
 import React from "react";
-import { View } from "react-native";
-import AppText from "./components/AppText";
+import { TouchableOpacity, View } from "react-native";
+import AppButton from "./components/AppButton";
 
 // https://icons.expo.fyi/Index
 
@@ -13,7 +13,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <AppText>I love React Native!</AppText>
+      <AppButton title="login" onPress={() => console.log("Tapped")}/>
     </View>
   );
 }
