@@ -1,6 +1,12 @@
 import React from "react";
 import { View } from "react-native";
 
+// for IOS device
+// shadowColor: "grey",
+// shadowOffset: { width: 10, height: 10 },
+// shadowOpacity: 1,
+// shadowRadius: 10,
+
 export default function App() {
   return (
     <View
@@ -15,11 +21,13 @@ export default function App() {
           backgroundColor: "dodgerblue",
           width: 100,
           height: 100,
-          borderWidth: 10,
-          borderColor: "royalblue",
-          borderRadius: 50,
-          // borderTopWidth: 20,
-          // borderTopLeftRadius: 50,
+          // iOS shadow properties
+          shadowColor: "grey",
+          shadowOffset: { width: 10, height: 10 },
+          shadowOpacity: 1,
+          shadowRadius: 10,
+          // Android elevation property
+          elevation: 20,    
         }}
       ></View>
     </View>
