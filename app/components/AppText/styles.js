@@ -2,7 +2,7 @@ import { Platform, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   text: {
-    color: "tomato",
+    color: "black",
     ...Platform.select({
       ios: {
         fontSize: 20,
