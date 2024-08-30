@@ -23,6 +23,8 @@ const intialMessages = [
 
 const MessagesScreen = () => {
   const [messages, setMessages] = useState(intialMessages);
+  const [refreshing, setRefreshing] = useState(false);
+
   const handleDelete = (message) => {
     // Delete the message from messages screen
     // call the server to delete the message
@@ -46,6 +48,17 @@ const MessagesScreen = () => {
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 2,
+              title: "T2",
+              description: "D2",
+              image: require("../assets/Anteneh_Atre.jpg"),
+            },
+          ]);
+        }}
       />
     </Screen>
   );
