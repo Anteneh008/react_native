@@ -1,6 +1,11 @@
 import React from "react";
 import MessagesScreen from "./screens/MessagesScreen";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function App() {
-  return <MessagesScreen />;
+  return (
+    <GestureHandlerRootView>
+      <MessagesScreen />
+    </GestureHandlerRootView>
+  );
 }
