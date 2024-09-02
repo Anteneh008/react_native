@@ -5,15 +5,14 @@ import {
   FlatList,
   Modal,
   StyleSheet,
-  TextInput,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
 
 import defaultStyles from "../config/styles";
 import AppText from "./AppText";
-import Screen from "./Screen";
 import PickerItem from "./PickerItem";
+import Screen from "./Screen";
 
 const AppPicker = ({
   icon,
@@ -34,9 +33,12 @@ const AppPicker = ({
               color={defaultStyles.colors.mediumGrey}
             />
           )}
-          <AppText style={styles.text}>
-            {selectedItem ? selectedItem.label : placeholder}
-          </AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
+        
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -55,8 +57,8 @@ const AppPicker = ({
               <PickerItem
                 label={item.label}
                 onPress={() => {
-                    setModalVisible(false)
-                    onSelectItem(item)
+                  setModalVisible(false);
+                  onSelectItem(item);
                 }}
               />
             )}
@@ -79,6 +81,10 @@ const styles = StyleSheet.create({
 
   icon: {
     marginRight: 10,
+  },
+  placeholder: {
+    flex: 1,
+    color: defaultStyles.colors.mediumGrey
   },
   text: {
     flex: 1,
